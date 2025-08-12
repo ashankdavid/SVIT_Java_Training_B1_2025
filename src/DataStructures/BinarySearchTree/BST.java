@@ -34,8 +34,21 @@ public class BST {
         root = insertRec(root, key);
     }
 
-    public void search(){
+    private boolean searchRec(Node root, int key){
+        if(root==null){
+            return false;
+        }
+        if(root.key == key)
+            return true;
+        if(key < root.key){
+            return searchRec(root.left, key);
+        }else{
+            return searchRec(root.right, key);
+        }
+    }
 
+    public boolean search(int key){
+        return searchRec(root, key);
     }
 
     public void remove(){
@@ -64,5 +77,8 @@ class DriverCode{
         bst.insert(140);
         bst.insert(180);
         bst.dfs(bst.root);
+
+        int key = 200;
+        System.out.println(bst.search(key));
     }
 }
