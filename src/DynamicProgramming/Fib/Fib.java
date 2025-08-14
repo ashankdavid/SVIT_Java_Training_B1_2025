@@ -17,5 +17,6 @@ public class Fib {
         int n = 5;
         int[] dp = new int[n + 1];
         int result = fib(n, dp);
+        System.out.println(result);
     }
 }
